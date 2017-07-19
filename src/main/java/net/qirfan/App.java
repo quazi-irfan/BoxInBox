@@ -3,6 +3,8 @@ package net.qirfan;
 import com.jme3.app.SimpleApplication;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
+import com.jme3.math.FastMath;
+import com.jme3.math.Vector3f;
 import com.jme3.scene.Node;
 import jme3_ext_xbuf.XbufLoader;
 
@@ -24,15 +26,27 @@ public class App extends SimpleApplication
 
         assetManager.registerLoader(XbufLoader.class, "xbuf");
 
-        Node world_Node = (Node) assetManager.loadModel("Models/world.xbuf");
-        Material world_Material = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        world_Material.setColor("Color", ColorRGBA.Blue);
-        world_Node.setMaterial(world_Material);
-        rootNode.attachChild(world_Node);
+        makeCubes(25);
     }
 
     @Override
     public void simpleUpdate(float tpf) {
         super.simpleUpdate(tpf);
+    }
+
+    private void makeCubes(int number){
+        Node boxNode;
+        Vector3f boxLoc;
+        Material boxMat;
+
+        for(int i = 0; i<number; i++){
+            boxNode = (Node) assetManager.loadModel("Models/world.xbuf");
+            boxMat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
+            boxMat.setColor("Color", ColorRGBA.randomColor());
+            boxNode.setMaterial(boxMat);
+            rootNode.attachChild(boxNode);
+            boxLoc = new Vector3f(FastMath.nextRandomInt(-10, 10),FastMath.nextRandomInt(-10, 10),FastMath.nextRandomInt(-10, 10));
+            boxNode.setLocalTranslation(boxLoc);
+        }
     }
 }
