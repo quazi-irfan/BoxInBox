@@ -22,10 +22,6 @@
             <id>jcenter</id>
             <url>http://jcenter.bintray.com</url>
         </repository>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
     </repositories>
 
     <dependencies>
@@ -115,18 +111,6 @@
             <groupId>com.nativelibs4java</groupId>
             <artifactId>jnaerator-runtime</artifactId>
             <version>0.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.xbuf.jme3_xbuf</groupId>
-            <artifactId>jme3_xbuf_loader</artifactId>
-            <version>LATEST</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.xbuf.jme3_xbuf</groupId>
-            <artifactId>jme3_xbuf_remote</artifactId>
-            <version>LATEST</version>
         </dependency>
 
     </dependencies>
